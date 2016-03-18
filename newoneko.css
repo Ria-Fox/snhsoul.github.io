@@ -1,0 +1,456 @@
+/* all */
+body {
+	font-weight: 300;
+	font-family: Roboto, "NanumBarunGothic", sans-serif;
+	color: #ffffff;
+	background-color: #000000;
+	background-image: url('./image/background.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+.face {
+	width: 100%;
+	height: 100vh;
+}
+.about a:link {
+	color: #ff8400;
+	text-decoration: none;
+}
+.about a:visited {
+	color: #ff8400;
+	text-decoration: none;
+}
+.about a:hover {
+	color: #ffd4a6;
+	text-decoration: none;
+}
+.about a:active {
+	color: #adadad;
+	text-decoration: none;
+}
+.footer a:link {
+	color: #ff8400;
+	text-decoration: none;
+}
+.footer a:visited {
+	color: #ff8400;
+	text-decoration: none;
+}
+.footer a:hover {
+	color: #ffd4a6;
+	text-decoration: none;
+}
+.footer a:active {
+	color: #adadad;
+	text-decoration: none;
+}
+a {
+	color: #ffffff;
+	text-decoration: none;
+}
+a:hover {
+	color: #ffffff;
+	text-decoration: none;
+}
+a:visited {
+	color: #ffffff;
+	text-decoration: none;
+}
+a:active {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+/* over 480px */
+h2 {
+	font-weight: 700;
+	font-family: Exo, "NanumBarunGothic", serif;
+	font-size: 1.6em;
+	text-align: center;
+	width: 100%;
+	background-color: rgba(255,255,255,0.2);
+	text-shadow: 0px 2px 0px #000000;
+}
+
+.alert {
+	width: 100%;
+	background-color: #ffc600;
+	color: #000000;
+	text-align: center;
+}
+
+.face main{
+	display: inline-block;
+	position: absolute;
+	width: 50%;
+	height: 40%;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	text-align: center;
+}
+.face subt{
+	font-weight: 100;
+	font-size: 8em;
+}
+.face subsubt{
+	font-weight: 100;
+	font-size: 2.5em;
+}
+.face cont{
+	font-size: 1.5em;
+}
+.face btn_blog{
+	font-size: 1.2em;
+	background-color: #f0693c;
+	padding: 0.5rem 1rem;
+	color: #ffffff;
+	margin: 0.25rem 0.25rem;
+}
+.face btn_blog:hover{
+	background-color: #f0a48b;
+}
+.face btn_twitter{
+	font-size: 1.2em;
+	background-color: #55acee;
+	color: #ffffff;
+	padding: 0.5rem 1rem;
+	text-decoration: none;
+	margin: 0.25rem 0.25rem;
+}
+.face btn_twitter:hover{
+	background-color: #a7d0ef;
+}
+.face btn_github{
+	font-size: 1.2em;
+	background-color: #717171;
+	color: #ffffff;
+	padding: 0.5rem 1rem;
+	text-decoration: none;
+	margin: 0.25rem 0.25rem;
+}
+.face btn_github:hover{
+	background-color: #afafaf;
+}
+.face down{
+	font-size: 1em;
+}
+.about {
+	width: 48%;
+	color: #ffffff;
+	left: 0;
+	right: 0;
+	margin: auto;
+	overflow:auto;
+	font-size: 1em;
+}
+.footer {
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+	color: #ffffff;
+}
+/*
+.navbar{
+	position: fixed;
+	width: 100%;
+	height: 4em;
+	background-color: #ffffff;
+	box-shadow: - 1em 1rem -1rem #000000;
+	top: 0;
+	color: #000000;
+}
+.navbar site{
+	float: left;
+	font-family: Roboto,  sans-serif;
+	font-size: 2em;
+}
+.navbar ul {
+	list-style-type: none;
+}
+.navbar ul li {
+	display: inline;
+	float: right;
+}
+*/
+
+/* ipad */
+@media screen and (min-width:761px) and (max-width:1152px) {
+	h2 {
+		font-weight: 700;
+		font-family: Exo, "NanumBarunGothic", serif;
+		font-size: 1.45em;
+		text-align: center;
+		width: 100%;
+		background-color: rgba(255,255,255,0.2);
+		text-shadow: 0px 2px 0px #000000;
+	}
+	.alert {
+		width: 100%;
+		background-color: #ffc600;
+		color: #000000;
+		text-align: center;
+	}
+	.face main{
+		display: inline-block;
+		position: absolute;
+		width: 100%;
+		height: 50%;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+		text-align: center;
+	}
+	.face subt{
+		font-weight: 100;
+		font-size: 6em;
+	}
+	.face subsubt{
+		font-weight: 100;
+		font-size: 1.75em;
+	}
+	.face cont{
+		font-size: 1.35em;
+	}
+	.face btn_blog{
+		font-size: 1.15em;
+		background-color: #f0693c;
+		padding: 0.5rem 1rem;
+		color: #ffffff;
+		margin: 0.25rem 0.25rem;
+	}
+	.face btn_blog:hover{
+		background-color: #f0a48b;
+	}
+	.face btn_twitter{
+		font-size: 1.15em;
+		background-color: #55acee;
+		color: #ffffff;
+		padding: 0.5rem 1rem;
+		text-decoration: none;
+		margin: 0.25rem 0.25rem;
+	}
+	.face btn_twitter:hover{
+		background-color: #a7d0ef;
+	}
+	.face btn_github{
+		font-size: 1.15em;
+		background-color: #717171;
+		color: #ffffff;
+		padding: 0.5rem 1rem;
+		text-decoration: none;
+		margin: 0.25rem 0.25rem;
+	}
+	.face btn_github:hover{
+		background-color: #afafaf;
+	}
+	.face down{
+		font-size: 0.9em;
+	}
+	.about {
+		width: 80%;
+		color: #ffffff;
+		left: 0;
+		right: 0;
+		margin: auto;
+		overflow:auto;
+		font-size: 1em;
+	}
+	.footer {
+		bottom: 0;
+		width: 100%;
+		text-align: center;
+		color: #ffffff;
+	}
+}
+
+/* over 360px under 480px */
+@media screen and (min-width:361px) and (max-width:760px) {
+	h2 {
+		font-weight: 700;
+		font-family: Exo, "NanumBarunGothic", serif;
+		font-size: 1.45em;
+		text-align: center;
+		width: 100%;
+		background-color: rgba(255,255,255,0.2);
+		text-shadow: 0px 2px 0px #000000;
+	}
+	.alert {
+		width: 100%;
+		background-color: #ffc600;
+		color: #000000;
+		text-align: center;
+	}
+	.face main{
+		display: inline-block;
+		position: absolute;
+		width: 100%;
+		height: 50%;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+		text-align: center;
+	}
+	.face subt{
+		font-weight: 100;
+		font-size: 6em;
+	}
+	.face subsubt{
+		font-weight: 100;
+		font-size: 1.75em;
+	}
+	.face cont{
+		font-size: 1.35em;
+	}
+	.face btn_blog{
+		font-size: 1.15em;
+		background-color: #f0693c;
+		padding: 0.5rem 1rem;
+		color: #ffffff;
+		margin: 0.25rem 0.25rem;
+	}
+	.face btn_blog:hover{
+		background-color: #f0a48b;
+	}
+	.face btn_twitter{
+		font-size: 1.15em;
+		background-color: #55acee;
+		color: #ffffff;
+		padding: 0.5rem 1rem;
+		text-decoration: none;
+		margin: 0.25rem 0.25rem;
+	}
+	.face btn_twitter:hover{
+		background-color: #a7d0ef;
+	}
+	.face btn_github{
+		font-size: 1.15em;
+		background-color: #717171;
+		color: #ffffff;
+		padding: 0.5rem 1rem;
+		text-decoration: none;
+		margin: 0.25rem 0.25rem;
+	}
+	.face btn_github:hover{
+		background-color: #afafaf;
+	}
+	.face down{
+		font-size: 0.9em;
+	}
+	.about {
+		width: 100%;
+		color: #ffffff;
+		left: 0;
+		right: 0;
+		margin: auto;
+		overflow:auto;
+		font-size: 1em;
+	}
+	.footer {
+		bottom: 0;
+		width: 100%;
+		text-align: center;
+		color: #ffffff;
+		font-size: 0.9em;
+	}
+}
+
+/* under 360px */
+@media screen and (max-width:360px) {
+	h2 {
+		font-weight: 700;
+		font-family: Exo, "NanumBarunGothic", serif;
+		font-size: 1.45em;
+		text-align: center;
+		width: 100%;
+		background-color: rgba(255,255,255,0.2);
+		text-shadow: 0px 2px 0px #000000;
+	}
+	.alert {
+		width: 100%;
+		background-color: #ffc600;
+		color: #000000;
+		text-align: center;
+	}
+	.face main{
+		display: inline-block;
+		position: absolute;
+		width: 100%;
+		height: 50%;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+		text-align: center;
+	}
+	.face subt{
+		font-weight: 100;
+		font-size: 4em;
+	}
+	.face subsubt{
+		font-weight: 100;
+		font-size: 1.4em;
+	}
+	.face cont{
+		font-size: 1.2em;
+	}
+	.face btn_blog{
+		font-size: 1.1em;
+		background-color: #f0693c;
+		padding: 0.5rem 1rem;
+		color: #ffffff;
+		margin: 0.25rem 0.25rem;
+	}
+	.face btn_blog:hover{
+		background-color: #f0a48b;
+	}
+	.face btn_twitter{
+		font-size: 1.1em;
+		background-color: #55acee;
+		color: #ffffff;
+		padding: 0.5rem 1rem;
+		text-decoration: none;
+		margin: 0.25rem 0.25rem;
+	}
+	.face btn_twitter:hover{
+		background-color: #a7d0ef;
+	}
+	.face btn_github{
+		font-size: 1.1em;
+		background-color: #717171;
+		color: #ffffff;
+		padding: 0.5rem 1rem;
+		text-decoration: none;
+		margin: 0.25rem 0.25rem;
+	}
+	.face btn_github:hover{
+		background-color: #afafaf;
+	}
+	.face down{
+		font-size: 0.9em;
+	}
+	.about {
+		width: 100%;
+		color: #ffffff;
+		left: 0;
+		right: 0;
+		margin: auto;
+		overflow:auto;
+		font-size: 0.9em;
+	}
+	.footer {
+		bottom: 0;
+		width: 100%;
+		text-align: center;
+		color: #ffffff;
+		font-size: 0.9em;
+	}
+}
