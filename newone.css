@@ -45,6 +45,9 @@ body {
 	color: #adadad;
 	text-decoration: none;
 }
+p {
+	text-shadow: 0px 0px 0px 5px #000000;
+}
 a {
 	color: #ffffff;
 	text-decoration: none;
