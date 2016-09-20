@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>EORZEA Passport Generator</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href='https://cdn.rawgit.com/openhiun/hangul/14c0f6faa2941116bb53001d6a7dcd5e82300c3f/nanumbarungothic.css' rel='stylesheet' type='text/css'>
     <img src="./image/passport_bg.png" id="background" width="1px"/>
@@ -10,6 +11,7 @@
     <img src="./image/mark_twin.png" id="twamark" width="1px"/>
     <img src="./image/mark_immortal.png" id="ifemark" width="1px"/>
     <script type="application/x-javascript">
+        // var image = "";
         lastimage = false;
         window.addEventListener('load', function() {
             var bg = document.getElementById('background');
@@ -38,9 +40,11 @@
 
                             reader.onload = function(event){
                                 image = new Image();
+
                                 image.src = event.target.result;
 
                                 lastImage = image;
+                                image.crossOrigin = "Anonymous";
                                 draw()
                             };
 
@@ -89,14 +93,14 @@
                     ctx.drawImage(bg, 0, 0, 1476, 1039);
                 }
             };
-            $("#download").click(function(){
-                downloadCanvas(this, 'canvas', 'passport.png');
-            });
-
-            function downloadCanvas(link, canvasId, filename) {
+            downloadCanvas = function downloadCanvas(link, canvasId, filename) {
                 link.href = document.getElementById(canvasId).toDataURL();
                 link.download = filename;
             }
+
+            document.getElementById('download').addEventListener('click', function() {
+                downloadCanvas(this, 'passcanvas', 'passport.png');
+            }, false);
         })
     </script>
 </head>
@@ -104,7 +108,7 @@
     <a href="http://lim2.xyz/eorzea">< Back to Menu</a> | <a href="http://lim2.xyz">lim2.xyz</a><br>
     <h1>EORZEA Passport Generator</h1><br>
     에오르제아 여권 생성기입니다. 문의사항은 <a href="http://twitter.com/soul_firefox">트위터 @soul_firefox</a> 또는 메일로 연락해주세요.<br>
-    Special Thanks to <a href="http://hibiya.moe">@hibiyasleep</a><br>
+    Special Thanks to <a href="http://hibiya.moe">@hibiyasleep</a>, <a href="http://twitter.com/kbuild_">@kbuild_</a><br>
     구현상의 문제로 앞에 달린 번호대로 실행하세요. 조만간 수정하겠습니다. 불편을 드려 죄송합니다.<br><br>
     <img src = "./image/passport_bg.png" alt="" width="480px">
     <br>
@@ -139,7 +143,7 @@
     발급일자(Date of Issue): <input type="text" name="issuedate" id="idate" maxlength="11"><br>
     유효일자(Date of Expiry): <input type="text" name="expdate" id="edate" maxlength="11"><br>
     ※ 생일, 발급일자, 유효일자는 DD MMM YYYY(ex. 04 MAR 2021) 형식으로 작성하세요.<br>
-    개인번호(Personal No.): <input type="text" name="pno" id="pno" maxlength="10"><br>
+    개인번호(Personal No.): <input type="number" name="pno" id="pno" maxlength="10"><br>
     ※ 10자리로 입력하세요. (Max length size: 10)<br>
     발급기관, 총사령부(Aurhority, Grand Company): <select name='author' id="author">
         <option value='' selected>-- 선택(Select) --</option>
@@ -149,9 +153,8 @@
     </select><br>
     인게임 닉네임(In-Game Charactername): <input type="text" name="lname" id="lname"><br>
     ※ 한글, 영어만 입력 가능합니다.(Only Korean and English.)<br><br>
-    ④ <button onclick="bgdraw();">배경</button>  ②⑤ <button onclick="draw();">이미지로 변환</button> <button type="button" id="download">PNG 이미지로 저장</button><br><br>
-    오른쪽 클릭(혹은 길게 터치) - 이미지 저장으로 사용하세요.<br>
-    PNG 이미지로 저장 버튼이 작동하지 않고 있습니다. 최대한 빨리 수정하겠습니다. 해결 전에는 위 방법으로 저장해주세요.<br><br>
+    ④ <button onclick="bgdraw();">배경 불러오기/이미지 초기화</button>  ②⑤ <button onclick="draw();">이미지로 변환</button>  ⑥ <a id="download"><button type="button">PNG 이미지로 저장</button></a><br><br>
+    PNG 이미지로 저장 버튼이 작동하지 않을 경우, 오른쪽 클릭 - 이미지 저장으로 사용하세요.<br><br>
     <canvas id="passcanvas" width="1476" height="1039" style="position: relative;">
     </canvas><br>
     기재되어있는 회사 명 · 제품명 · 시스템 이름은 해당 소유자의 상표 또는 등록 상표입니다.<br>
