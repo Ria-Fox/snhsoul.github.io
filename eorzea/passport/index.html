@@ -90,7 +90,7 @@
                 }
             };
             $("#download").click(function(){
-                downloadCanvas(this, 'passcanvas', 'passport.png');
+                downloadCanvas(this, 'canvas', 'passport.png');
             });
 
             function downloadCanvas(link, canvasId, filename) {
@@ -150,7 +150,8 @@
     인게임 닉네임(In-Game Charactername): <input type="text" name="lname" id="lname"><br>
     ※ 한글, 영어만 입력 가능합니다.(Only Korean and English.)<br><br>
     ④ <button onclick="bgdraw();">배경</button>  ②⑤ <button onclick="draw();">이미지로 변환</button> <button type="button" id="download">PNG 이미지로 저장</button><br><br>
-    Firefox 브라우저는 오른쪽 클릭(혹은 길게 터치) - 이미지 저장으로 사용하세요.<br><br>
+    오른쪽 클릭(혹은 길게 터치) - 이미지 저장으로 사용하세요.<br>
+    PNG 이미지로 저장 버튼이 작동하지 않고 있습니다. 최대한 빨리 수정하겠습니다.<br><br>
     <canvas id="passcanvas" width="1476" height="1039" style="position: relative;">
     </canvas><br>
     기재되어있는 회사 명 · 제품명 · 시스템 이름은 해당 소유자의 상표 또는 등록 상표입니다.<br>
