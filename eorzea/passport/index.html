@@ -89,18 +89,14 @@
                     ctx.drawImage(bg, 0, 0, 1476, 1039);
                 }
             };
-            /*
-            clearCanvas = function clearCanvas() {
-                // canvas
-                var canvas = document.getElementById('passcanvas');
-                // context
-                var ctx = canvas.getContext('2d');
-                // 픽셀 정리
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                // 컨텍스트 리셋
-                ctx.beginPath();
+            $("#download").click(function(){
+                downloadCanvas(this, 'passcanvas', 'passport.png');
+            });
+
+            function downloadCanvas(link, canvasId, filename) {
+                link.href = document.getElementById(canvasId).toDataURL();
+                link.download = filename;
             }
-            */
         })
     </script>
 </head>
@@ -153,8 +149,8 @@
     </select><br>
     인게임 닉네임(In-Game Charactername): <input type="text" name="lname" id="lname"><br>
     ※ 한글, 영어만 입력 가능합니다.(Only Korean and English.)<br><br>
-    ④ <button onclick="bgdraw();">배경</button>  ②⑤ <button onclick="draw();">이미지로 변환</button><br><br>
-    오른쪽 클릭(혹은 길게 터치) - 이미지 저장으로 사용하세요.<br><br>
+    ④ <button onclick="bgdraw();">배경</button>  ②⑤ <button onclick="draw();">이미지로 변환</button> <button type="button" id="download">PNG 이미지로 저장</button><br><br>
+    Firefox 브라우저는 오른쪽 클릭(혹은 길게 터치) - 이미지 저장으로 사용하세요.<br><br>
     <canvas id="passcanvas" width="1476" height="1039" style="position: relative;">
     </canvas><br>
     기재되어있는 회사 명 · 제품명 · 시스템 이름은 해당 소유자의 상표 또는 등록 상표입니다.<br>
