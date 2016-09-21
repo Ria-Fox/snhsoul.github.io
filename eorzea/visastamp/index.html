@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>EORZEA Visa Stamp Generator</title>
+    <link href="https://fonts.googleapis.com/css?family=Cinzel|Roboto:500" rel="stylesheet">
+    <img src="./image/mst.png" id="mst" width="1px"/>
+    <img src="./image/ife.png" id="ife" width="1px"/>
+    <img src="./image/twa.png" id="twa" width="1px"/>
+    <script type="application/x-javascript">
+        lastimage = false;
+        window.addEventListener('load', function() {
+            draw = function draw() {
+                var canvas = document.getElementById("passcanvas");
+                var stype = document.getElementById('stype').value;
+                var cntry = document.getElementById('cntry').value;
+                var adate1 = document.getElementById('adate1').value;
+                var adate2 = document.getElementById('adate2').value;
+                var adate3 = document.getElementById('adate3').value;
+                var idate1 = document.getElementById('idate1').value;
+                var idate2 = document.getElementById('idate2').value;
+                var idate3 = document.getElementById('idate3').value;
+                var idate4 = document.getElementById('idate4').value;
+                var idate5 = document.getElementById('idate5').value;
+                var idate6 = document.getElementById('idate6').value;
+                var idate7 = document.getElementById('idate7').value;
+
+                if (canvas.getContext) {
+                    var ctx = canvas.getContext("2d");
+                    //ctx.drawImage(image, 57, 227, 415, 533);
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    ctx.beginPath();
+                    switch(stype) {
+                        case "1":
+                            ctx.drawImage(mst, 0, 0, 1910, 926);
+                            break;
+                        case "2":
+                            ctx.drawImage(twa, 0, 0, 1910, 926);
+                            break;
+                        case "3":
+                            ctx.drawImage(ife, 0, 0, 1910, 926);
+                            break;
+                        default:
+                            alert('총사령부를 선택해 주십시오. Please select Grand Company.');
+                            break;
+                    }
+                    ctx.font = '45px Cinzel';
+                    ctx.fillStyle = 'rgba(0,132,255,1)';
+                    switch(cntry) {
+                        case "1":
+                            ctx.fillText('FFXIV KOREA', 322, 687);
+                            ctx.fillText('EYEDENTITY MOBILE', 235, 734);
+                            break;
+                        case "2":
+                            ctx.fillText('FFXIV GLOBAL', 311, 687);
+                            ctx.fillText('SQUARE ENIX', 322, 734);
+                            ctx.fillText('ELEMENTAL', 340, 781);
+                            break;
+                        case "3":
+                            ctx.fillText('FFXIV GLOBAL', 311, 687);
+                            ctx.fillText('SQUARE ENIX', 322, 734);
+                            ctx.fillText('GAIA', 410, 781);
+                            break;
+                        case "4":
+                            ctx.fillText('FFXIV GLOBAL', 311, 687);
+                            ctx.fillText('SQUARE ENIX', 322, 734);
+                            ctx.fillText('MANA', 395, 781);
+                            break;
+                        case "5":
+                            ctx.fillText('FFXIV GLOBAL', 311, 687);
+                            ctx.fillText('SQUARE ENIX', 322, 734);
+                            ctx.fillText('AETHER', 375, 781);
+                            break;
+                        case "6":
+                            ctx.fillText('FFXIV GLOBAL', 311, 687);
+                            ctx.fillText('SQUARE ENIX', 322, 734);
+                            ctx.fillText('PRIMAL', 385, 781);
+                            break;
+                        case "7":
+                            ctx.fillText('FFXIV GLOBAL', 311, 687);
+                            ctx.fillText('SQUARE ENIX', 322, 734);
+                            ctx.fillText('CHAOS', 385, 781);
+                            break;
+                        default:
+                            alert('국가/데이터센터를 선택해 주십시오. Please select Country/Data Center.');
+                            break;
+                    }
+                    ctx.font = '500 90px Roboto';
+                    //ctx.textAlign = 'top';
+                    ctx.fillText(adate1, 178, 490);
+                    ctx.fillText(adate2, 410, 490);
+                    ctx.fillText(adate3, 620, 490);
+
+                    ctx.font = '45px Cinzel';
+                    ctx.fillStyle = 'rgba(255,92,91,1)';
+                    switch(cntry) {
+                        case "1":
+                            ctx.fillText('FFXIV KOREA  EYEDENTITY MOBILE', 1055, 815);
+                            break;
+                        case "2":
+                            ctx.fillText('FFXIV  SQUARE ENIX  ELEMENTAL', 1080, 815);
+                            break;
+                        case "3":
+                            ctx.fillText('FFXIV  SQUARE ENIX  GAIA', 1153, 815);
+                            break;
+                        case "4":
+                            ctx.fillText('FFXIV  SQUARE ENIX  MANA', 1140, 815);
+                            break;
+                        case "5":
+                            ctx.fillText('FFXIV  SQUARE ENIX  AETHER', 1125, 815);
+                            break;
+                        case "6":
+                            ctx.fillText('FFXIV  SQUARE ENIX  PRIMAL', 1125, 815);
+                            break;
+                        case "7":
+                            ctx.fillText('FFXIV  SQUARE ENIX  CHAOS', 1130, 815);
+                            break;
+                        default:
+                            break;
+                    }
+                    ctx.font = '500 90px Roboto';
+                    //ctx.textAlign = 'top';
+                    ctx.fillText(idate1, 1164, 470);
+                    ctx.fillText(idate2, 1415, 470);
+                    ctx.fillText(idate3, 1630, 470);
+                    ctx.fillText(idate4, 1164, 635);
+                    ctx.fillText(idate5, 1415, 635);
+                    ctx.fillText(idate6, 1630, 635);
+                    switch(idate7) {
+                        case "1":
+                            ctx.fillText('30', 1630, 750);
+                            break;
+                        case "2":
+                            ctx.fillText('90', 1630, 750);
+                            break;
+                        case "3":
+                            ctx.fillText('180', 1579, 750);
+                            break;
+                        default:
+                            alert('유효기간을 선택해 주십시오. Please select Duration');
+                            break;
+                    }
+                }
+            };
+
+            /* bgdraw = function bgdraw() {
+                var canvas = document.getElementById("passcanvas");
+                var ctx = canvas.getContext("2d");
+                ctx.drawImage(mst, 0, 0, 1910, 926);
+            };
+            */
+            clearCanvas = function clearCanvas()
+            {
+                var canvas = document.getElementById('passcanvas');
+                var ctx = canvas.getContext('2d');
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.beginPath();
+            }
+
+            downloadCanvas = function downloadCanvas(link, canvasId, filename) {
+                link.href = document.getElementById(canvasId).toDataURL();
+                link.download = filename;
+            }
+
+            document.getElementById('download').addEventListener('click', function() {
+                downloadCanvas(this, 'passcanvas', 'visastamp.png');
+            }, false);
+        })
+    </script>
+</head>
+<body>
+    <a href="http://lim2.xyz/eorzea">< Back to Menu</a> | <a href="http://lim2.xyz/eorzea/passport">여권 생성기(Passport Generator)</a> | <a href="http://lim2.xyz">lim2.xyz</a><br>
+    <h1>EORZEA Visa Stamp Generator</h1><br>
+    에오르제아 출입국 스탬프 생성기입니다. 문의사항은 <a href="http://twitter.com/soul_firefox">트위터 @soul_firefox</a> 또는 메일로 연락해주세요.<br>
+    Special Thanks to <a href="http://hibiya.moe">@hibiyasleep</a>, <a href="http://twitter.com/kbuild_">@kbuild_</a><br><br>
+    <b>Internet Explorer, Microsoft Edge, 삼성 브라우저(삼성 갤럭시 기본탑재 인터넷 App.)는 지원하지 않습니다. 가급적 크롬, 파이어폭스 등의 다른 브라우저를 이용하시기 바랍니다.</b><br><br>
+    <img src = "./image/passport_bg.png" alt="" width="480px">
+    <br>
+    <h4>① 정보 입력(Input Information)</h4><br>
+    발급기관, 총사령부(Aurhority, Grand Company): <select name='stype' id="stype">
+        <option value='' selected>-- 선택(Select) --</option>
+        <option value='1'>흑와단(Malestrom)</option>
+        <option value='2'>쌍사당(Twin Adder)</option>
+        <option value='3'>불멸대(Immortal Flame)</option>
+    </select><br>
+    국가/데이터센터(Country/Data Center): <select name='country' id="cntry">
+        <option value='' selected>Select</option>
+        <option value='1'>한국(Korea)</option>
+        <option value='2'>Global: Elemental</option>
+        <option value='3'>Global: Gaia</option>
+        <option value='4'>Global: Mana</option>
+        <option value='5'>Global: Aether</option>
+        <option value='6'>Global: Primal</option>
+        <option value='7'>Global: Chaos</option>
+    </select><br><br>
+    <b>출국(Departed)</b><br>
+    출국날짜(Date): <input type="number" name="adate1" id="adate1" maxlength="4">년(Year)
+    <select name='adate2' id="adate2">
+        <option value='' selected>Select</option>
+        <option value='JAN'>1월(JAN)</option>
+        <option value='FEB'>2월(FEB)</option>
+        <option value='MAR'>3월(MAR)</option>
+        <option value='APR'>4월(APR)</option>
+        <option value='MAY'>5월(MAY)</option>
+        <option value='JUN'>6월(JUN)</option>
+        <option value='JUL'>7월(JUL)</option>
+        <option value='AUG'>8월(AUG)</option>
+        <option value='SEP'>9월(SEP)</option>
+        <option value='OCT'>10월(OCT)</option>
+        <option value='NOV'>11월(NOV)</option>
+        <option value='DEC'>12월(DEC)</option>
+    </select>월(Month)
+    <select name='adate3' id="adate3">
+        <option value='' selected>Select</option>
+        <option value='01'>01</option>
+        <option value='02'>02</option>
+        <option value='03'>03</option>
+        <option value='04'>04</option>
+        <option value='05'>05</option>
+        <option value='06'>06</option>
+        <option value='07'>07</option>
+        <option value='08'>08</option>
+        <option value='09'>09</option>
+        <option value='10'>10</option>
+        <option value='11'>11</option>
+        <option value='12'>12</option>
+        <option value='13'>13</option>
+        <option value='14'>14</option>
+        <option value='15'>15</option>
+        <option value='16'>16</option>
+        <option value='17'>17</option>
+        <option value='18'>18</option>
+        <option value='19'>19</option>
+        <option value='20'>20</option>
+        <option value='21'>21</option>
+        <option value='22'>22</option>
+        <option value='23'>23</option>
+        <option value='24'>24</option>
+        <option value='25'>25</option>
+        <option value='26'>26</option>
+        <option value='27'>27</option>
+        <option value='28'>28</option>
+        <option value='29'>29</option>
+        <option value='30'>30</option>
+        <option value='31'>31</option>
+    </select>일(Day)<br><br>
+    <b>입국(Admitted)</b><br>
+    입국날짜(Date of Permit): <input type="number" name="idate1" id="idate1" maxlength="4">년(Year)
+    <select name='idate2' id="idate2">
+        <option value='' selected>Select</option>
+        <option value='JAN'>1월(JAN)</option>
+        <option value='FEB'>2월(FEB)</option>
+        <option value='MAR'>3월(MAR)</option>
+        <option value='APR'>4월(APR)</option>
+        <option value='MAY'>5월(MAY)</option>
+        <option value='JUN'>6월(JUN)</option>
+        <option value='JUL'>7월(JUL)</option>
+        <option value='AUG'>8월(AUG)</option>
+        <option value='SEP'>9월(SEP)</option>
+        <option value='OCT'>10월(OCT)</option>
+        <option value='NOV'>11월(NOV)</option>
+        <option value='DEC'>12월(DEC)</option>
+    </select>월(Month)
+    <select name='idate3' id="idate3">
+        <option value='' selected>Select</option>
+        <option value='01'>01</option>
+        <option value='02'>02</option>
+        <option value='03'>03</option>
+        <option value='04'>04</option>
+        <option value='05'>05</option>
+        <option value='06'>06</option>
+        <option value='07'>07</option>
+        <option value='08'>08</option>
+        <option value='09'>09</option>
+        <option value='10'>10</option>
+        <option value='11'>11</option>
+        <option value='12'>12</option>
+        <option value='13'>13</option>
+        <option value='14'>14</option>
+        <option value='15'>15</option>
+        <option value='16'>16</option>
+        <option value='17'>17</option>
+        <option value='18'>18</option>
+        <option value='19'>19</option>
+        <option value='20'>20</option>
+        <option value='21'>21</option>
+        <option value='22'>22</option>
+        <option value='23'>23</option>
+        <option value='24'>24</option>
+        <option value='25'>25</option>
+        <option value='26'>26</option>
+        <option value='27'>27</option>
+        <option value='28'>28</option>
+        <option value='29'>29</option>
+        <option value='30'>30</option>
+        <option value='31'>31</option>
+    </select>일(Day)<br>
+    유효날짜(Until): <input type="number" name="idate4" id="idate4" maxlength="4">년(Year)
+    <select name='idate5' id="idate5">
+        <option value='' selected>Select</option>
+        <option value='JAN'>1월(JAN)</option>
+        <option value='FEB'>2월(FEB)</option>
+        <option value='MAR'>3월(MAR)</option>
+        <option value='APR'>4월(APR)</option>
+        <option value='MAY'>5월(MAY)</option>
+        <option value='JUN'>6월(JUN)</option>
+        <option value='JUL'>7월(JUL)</option>
+        <option value='AUG'>8월(AUG)</option>
+        <option value='SEP'>9월(SEP)</option>
+        <option value='OCT'>10월(OCT)</option>
+        <option value='NOV'>11월(NOV)</option>
+        <option value='DEC'>12월(DEC)</option>
+    </select>월(Month)
+    <select name='idate6' id="idate6">
+        <option value='' selected>Select</option>
+        <option value='01'>01</option>
+        <option value='02'>02</option>
+        <option value='03'>03</option>
+        <option value='04'>04</option>
+        <option value='05'>05</option>
+        <option value='06'>06</option>
+        <option value='07'>07</option>
+        <option value='08'>08</option>
+        <option value='09'>09</option>
+        <option value='10'>10</option>
+        <option value='11'>11</option>
+        <option value='12'>12</option>
+        <option value='13'>13</option>
+        <option value='14'>14</option>
+        <option value='15'>15</option>
+        <option value='16'>16</option>
+        <option value='17'>17</option>
+        <option value='18'>18</option>
+        <option value='19'>19</option>
+        <option value='20'>20</option>
+        <option value='21'>21</option>
+        <option value='22'>22</option>
+        <option value='23'>23</option>
+        <option value='24'>24</option>
+        <option value='25'>25</option>
+        <option value='26'>26</option>
+        <option value='27'>27</option>
+        <option value='28'>28</option>
+        <option value='29'>29</option>
+        <option value='30'>30</option>
+        <option value='31'>31</option>
+    </select>일(Day)<br>
+    유효기간(Duration): <select name='idate7' id="idate7">
+        <option value='' selected>Select</option>
+        <option value='1'>30일(30 days)</option>
+        <option value='2'>90일(90 days)</option>
+        <option value='3'>180일(180 days)</option>
+    </select>
+    <br><br>
+    <button onclick="draw();">이미지로 변환(Convert to Image)</button> <a id="download"><button type="button">PNG 이미지 파일로 저장(Save to PNG Image file)</button></a><br><br>
+    오른쪽 클릭(혹은 길게 터치) - 이미지 저장으로 사용하세요.<br><br>
+    <canvas id="passcanvas" width="1910" height="926" style="position: relative;">
+    </canvas><br>
+    기재되어있는 회사 명 · 제품명 · 시스템 이름은 해당 소유자의 상표 또는 등록 상표입니다.<br>
+    ⓒ 2010 - 2016 SQUARE ENIX CO., LTD All Rights Reserved. Korea Published by EYEDENTITY MOBILE.<br>
+    <br>
+    <br>
+    출입국 스탬프 이미지는 <a href="http://lim2.xyz">본인</a>에게 저작권이 있으며, 생성기 이외의 용도로 사용을 금지합니다.<br>
+    ⓒ 2016 Dongju Lee.<br>
+    <br>
+</body>
+</html>
