@@ -1,170 +1,312 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>EORZEA Passport Generator</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link href='https://cdn.rawgit.com/openhiun/hangul/14c0f6faa2941116bb53001d6a7dcd5e82300c3f/nanumbarungothic.css' rel='stylesheet' type='text/css'>
-    <img src="./image/passport_bg.png" id="background" width="1px"/>
-    <img src="./image/mark_maelstrom.png" id="mstmark" width="1px"/>
-    <img src="./image/mark_twin.png" id="twamark" width="1px"/>
-    <img src="./image/mark_immortal.png" id="ifemark" width="1px"/>
-    <script type="application/x-javascript">
-        // var image = "";
-        lastimage = false;
-        window.addEventListener('load', function() {
-            var bg = document.getElementById('background');
-            draw = function draw() {
-                var ptype = document.getElementById('ptype').value;
-                var surname = document.getElementById('surname').value;
-                var givenname = document.getElementById('givenname').value;
-                var sex = document.getElementById('sex').value;
-                var bday = document.getElementById('bday').value;
-                var idate = document.getElementById('idate').value;
-                var edate = document.getElementById('edate').value;
-                var author = document.getElementById('author').value;
-                var lname = document.getElementById('lname').value;
-                var pno = document.getElementById('pno').value;
-                var canvas = document.getElementById("passcanvas");
-                if (canvas.getContext) {
-                    var ctx = canvas.getContext("2d");
-                    var file = document.getElementById('file');
-                    file.addEventListener('click', function() {
-                        file.value = ''
-                    });
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title> EORZEA Passport Generator </title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
+    <link href="https://cdn.rawgit.com/openhiun/hangul/14c0f6faa2941116bb53001d6a7dcd5e82300c3f/nanumbarungothic.css" rel="stylesheet" />
+    <script src="../js/FileSaver.min.js"></script>
+    <script src="../js/lib.js"></script>
+    <script src="js/index.js"></script>
+    <style>
+* {
+  box-sizing: border-box;
+}
 
-                    file.addEventListener('change', function(event) {
-                        if(event && event.target.files) {
-                            var reader = new FileReader();
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 200;
+  text-align: center;
 
-                            reader.onload = function(event){
-                                image = new Image();
+  margin: 0;
+  padding: 0;
 
-                                image.src = event.target.result;
+  background: #222;
+  color: #eee;
+}
 
-                                lastImage = image;
-                                image.crossOrigin = "Anonymous";
-                                draw()
-                            };
+a {
+  color: #f93;
+}
+a:visited {
+  color: #fc6;
+}
 
-                            reader.readAsDataURL(event.target.files[0])
+p {
+  margin-left: 1em;
+  margin-right: 1em;
+}
 
-                        }
-                    });
-                    ctx.drawImage(image, 57, 227, 415, 533);
-                    ctx.font = '30px Roboto';
-                    ctx.fillText(ptype, 540, 190);
-                    ctx.fillText(surname, 540, 285);
-                    ctx.fillText(givenname, 540, 380);
-                    ctx.fillText(bday, 540, 475);
-                    ctx.fillText(sex, 540, 570);
-                    ctx.fillText(idate, 540, 665);
-                    ctx.fillText(edate, 540, 760);
-                    ctx.fillText(pno, 1020, 475);
-                    ctx.fillText('EORZEA', 705, 190);
-                    switch(author) {
-                        case "1":
-                            ctx.fillText('MAELSTORM', 1020, 665);
-                            ctx.drawImage(mstmark, 1325, 185, 120, 120);
-                            break;
-                        case "2":
-                            ctx.fillText('TWIN ADDER', 1020, 665);
-                            ctx.drawImage(twamark, 1325, 185, 120, 120);
-                            break;
-                        case "3":
-                            ctx.fillText('IMMORTAL FLAME', 1020, 665);
-                            ctx.drawImage(ifemark, 1325, 185, 120, 120);
-                            break;
-                        default:
-                            alert('총사령부를 선택해 주십시오. Please select Grand Company.');
-                            break;
-                    }
-                    ctx.fillText(Math.floor(Math.random()*1000000000), 1115, 190);
-                    ctx.font = '700 30px "Nanum Barun Gothic"';
-                    ctx.fillText(lname, 1020, 760);
-                }
-            };
+nav {
+  width: 100%;
+  padding: 0.5em;
 
-            bgdraw = function bgdraw() {
-                var canvas = document.getElementById("passcanvas");
-                if (canvas.getContext) {
-                    var ctx = canvas.getContext("2d");
-                    ctx.drawImage(bg, 0, 0, 1476, 1039);
-                }
-            };
-            downloadCanvas = function downloadCanvas(link, canvasId, filename) {
-                link.href = document.getElementById(canvasId).toDataURL();
-                link.download = filename;
-            }
+  background: #444;
+}
+nav a {
+  word-break: keep-all;
+}
 
-            document.getElementById('download').addEventListener('click', function() {
-                downloadCanvas(this, 'passcanvas', 'passport.png');
-            }, false);
-        })
-    </script>
-</head>
-<body onload = "bgdraw();">
-    <a href="http://lim2.xyz/eorzea">< Back to Menu</a> | <a href="http://lim2.xyz/eorzea/visastamp">출입국 스탬프 생성기(Visa Stamp Generator)</a> | <a href="http://lim2.xyz">lim2.xyz</a><br>
-    <h1>EORZEA Passport Generator</h1><br>
-    에오르제아 여권 생성기입니다. 문의사항은 <a href="http://twitter.com/soul_firefox">트위터 @soul_firefox</a> 또는 메일로 연락해주세요.<br>
-    Special Thanks to <a href="http://hibiya.moe">@hibiyasleep</a>, <a href="http://twitter.com/kbuild_">@kbuild_</a><br>
-    구현상의 문제로 앞에 달린 번호대로 실행하세요. 조만간 수정하겠습니다. 불편을 드려 죄송합니다.<br><br>
-    <b>Internet Explorer, Microsoft Edge, 삼성 브라우저(삼성 갤럭시 기본탑재 인터넷 App.)는 지원하지 않습니다. 가급적 크롬, 파이어폭스 등의 다른 브라우저를 이용하시기 바랍니다.</b><br><br>
-    <img src = "./image/passport_bg.png" alt="" width="480px">
-    <br>
-    <h4>① 정보 입력(Input Information)<br>
-    모든 문자는 대문자로 입력해주세요!(Input only Big characters.)</h4><br>
-    ③ 프로필이미지(Profile Image): <input type="file" id="file"><br>
-    ※ 415x533 혹은 그에 맞는 비율의 이미지를 추천합니다.(Recommend image size is 415x533 px.)<br>
-    종류(Type): <select name='ptype' id="ptype">
-        <option value='' selected>-- 선택(Select) --</option>
-        <option value='PM'>PM(복수여권)</option>
-        <option value='PS'>PS(단수여권)</option>
-        <option value='PR'>PR(거주여권)</option>
-    </select><br>
-    성(Surname): <input type="text" id="surname"><br>
-    이름(Given name): <input type="text" name="givenname" id="givenname"><br>
-    성별과 종족(Sex): <select name='sex' id="sex">
-    <option value='' selected>-- 선택(Select) --</option>
-        <option value='M HYUR'>남 휴런(Male Hyur)</option>
-        <option value='F HYUR'>여 휴런(Female Hyur)</option>
-        <option value='M MIQOTE'>남 미코테(Male Mi'qote)</option>
-        <option value='F MIQOTE'>여 미코테(Female Mi'qote)</option>
-        <option value='M LALAFELL'>남 라라펠(Male Lalafell)</option>
-        <option value='F LALAFELL'>여 라라펠(Female Lalafell)</option>
-        <option value='M ELEZEN'>남 엘레젠(Male Elezen)</option>
-        <option value='F ELEZEN'>여 엘레젠(Female Elezen)</option>
-        <option value='M ROEGADYN'>남 루가딘(Male Roegadyn)</option>
-        <option value='F ROEGADYN'>여 루가딘(Female Roegadyn)</option>
-        <option value='M AURA'>남 아우라(Male Aura)</option>
-        <option value='F AURA'>여 아우라(Female Aura)</option>
-    </select><br>
-    생일(Birthday): <input type="text" name="birth" value="21 FEB 2016" id="bday" maxlength="11"><br>
-    발급일자(Date of Issue): <input type="text" name="issuedate" id="idate" maxlength="11"><br>
-    유효일자(Date of Expiry): <input type="text" name="expdate" id="edate" maxlength="11"><br>
-    ※ 생일, 발급일자, 유효일자는 DD MMM YYYY(ex. 04 MAR 2021) 형식으로 작성하세요.<br>
-    개인번호(Personal No.): <input type="number" name="pno" id="pno" maxlength="10"><br>
-    ※ 10자리로 입력하세요. (Max length size: 10)<br>
-    발급기관, 총사령부(Aurhority, Grand Company): <select name='author' id="author">
-        <option value='' selected>-- 선택(Select) --</option>
-        <option value='1'>흑와단(Malestrom)</option>
-        <option value='2'>쌍사당(Twin Adder)</option>
-        <option value='3'>불멸대(Immortal Flame)</option>
-    </select><br>
-    인게임 닉네임(In-Game Charactername): <input type="text" name="lname" id="lname"><br>
-    ※ 한글, 영어만 입력 가능합니다.(Only Korean and English.)<br><br>
-    ④ <button onclick="bgdraw();">배경 불러오기/이미지 초기화(Import Background/Clear Image)</button>  ②⑤ <button onclick="draw();">이미지로 변환(Convert to Image)</button>  ⑥ <a id="download"><button type="button">PNG 이미지 파일로 저장(Save to PNG Image file)</button></a><br><br>
-    PNG 이미지로 저장 버튼이 작동하지 않을 경우, 오른쪽 클릭 - 이미지 저장으로 사용하세요.<br>
-    애플 iOS Safari의 경우, 새 창에서 길게 터치 - 이미지 저장을 하시기 바랍니다.<br><br>
+
+canvas {
+  margin: 1em;
+  width: calc(100% - 2em);
+}
+.muted {
+  color: #666;
+}
+
+.form {
+  margin: 1em;
+  padding: 0;
+  background: #333;
+
+  list-style: none;
+}
+.form i {
+  font-style: normal;
+  color: #666;
+  float: right;
+}
+.form li {
+  display: inline-block;
+  width: 33.333333%;
+  padding: 1em;
+  text-align: right;
+}
+.form li .title {
+  text-align: left;
+}
+.form li .title + input {
+  background: none;
+  border: none;
+  border-radius: 0;
+  font: inherit;
+  color: inherit;
+
+  text-align: right;
+  width: 100%;
+  border-bottom: 2px solid #f90;
+}
+#file {
+
+  direction: rtl;
+}
+#file::-ms-browse {
+  font: inherit;
+  color: #666;
+  border: none;
+  background: none;
+
+}
+#file::-ms-value {
+  font: inherit;
+  color: inherit;
+  border: none;
+  background: none;
+}
+.form li .title + select {
+  font: inherit;
+  width: 100%;
+  direction: rtl;
+}
+
+.buttons {
+  margin: 1em auto;
+  padding: 0;
+  list-style: none;
+}
+.buttons li {
+  display: inline-block;
+
+  padding: 1em;
+  background: #333;
+  box-shadow: 0 0 0 #f90 inset;
+
+  cursor: pointer;
+  transition: background 200ms ease,
+              box-shadow 100ms ease;
+}
+.buttons li:hover {
+  background: #444;
+  box-shadow: 0 -0.25em 0 #f90 inset;
+}
+
+.w2-3.w2-3 {
+  width: 66.666666%;
+}
+
+@media (max-width: 768px) {
+  .form.form li {
+    width: 50%;
+  }
+  .w2-3.w2-3.w2-3 {
+    width: 100%;
+  }
+}
+@media (max-width: 480px) {
+  .form.form li {
+    width: 100%;
+  }
+}
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="../">< Back to Menu</a>
+      |
+      <a href="../visastamp">출입국 스탬프 생성기(Visa Stamp Generator)</a>
+      |
+      <a href="http//lim2.xyz">lim2.xyz</a>
+    </nav>
+
+    <h1>EORZEA Passport Generator</h1>
+
+    <p>
+      에오르제아 여권 생성기입니다. 문의사항은
+      <a href="http://twitter.com/soul_firefox">트위터 @soul_firefox</a>
+      또는 메일로 연락해주세요.
+    </p>
+    <p>
+      Special Thanks to:
+      <a href="https://twitter.com/hibiyasleep">@hibiyasleep</a>,
+      <a href="https://twitter.com/kbuild_">@kbuild_</a>
+    </p>
+    <p>
+      <b>
+        삼성 브라우저(삼성 갤럭시 기본 인터넷 앱)는 지원하지 않습니다.
+        <br />
+        가급적 크롬, 파이어폭스 등의 다른 브라우저를 이용하시기 바랍니다.
+      </b>
+    </p>
+    <p class="muted">
+      415x533 혹은 그에 맞는 비율의 이미지를 추천합니다.
+      <br/>
+      Recommend image size is 415x533 px.
+    </p>
+    <ul class="form">
+      <li class="w2-3">
+        <div class="title">
+          프로필 이미지 <i>Profile Image</i>
+        </div>
+        <input type="file" id="file">
+      </li><!--
+   --><li>
+        <div class="title">
+          종류 <i>Type</i>
+        </div>
+        <select name="ptype" id="ptype">
+          <option value="PM" selected>PM / 복수여권</option>
+          <option value="PS">PS / 단수여권</option>
+          <option value="PR">PR / 거주여권</option>
+        </select>
+      </li><!--
+   --><li>
+        <div class="title">
+          성 <i>Surname</i>
+        </div>
+        <input type="text" id="surname" />
+      </li><!--
+   --><li>
+        <div class="title">
+          이름 <i>Given name</i>
+        </div>
+        <input type="text" name="givenname" id="givenname" />
+      </li><!--
+   --><li>
+        <div class="title">
+          성별과 종족 <i>Sex / Tribe</i>
+        </div>
+        <select name="sex" id="sex">
+          <option value="" selected>-- 선택 / Select --</option>
+          <option value="M HYUR">남 휴런 / Male Hyur</option>
+          <option value="F HYUR">여 휴런 / Female Hyur</option>
+          <option value="M MIQOTE">남 미코테 / Male Mi'qote</option>
+          <option value="F MIQOTE">여 미코테 / Female Mi'qote</option>
+          <option value="M LALAFELL">남 라라펠 / Male Lalafell</option>
+          <option value="F LALAFELL">여 라라펠 / Female Lalafell</option>
+          <option value="M ELEZEN">남 엘레젠 / Male Elezen</option>
+          <option value="F ELEZEN">여 엘레젠 / Female Elezen</option>
+          <option value="M ROEGADYN">남 루가딘 / Male Roegadyn</option>
+          <option value="F ROEGADYN">여 루가딘 / Female Roegadyn</option>
+          <option value="M AURA">남 아우라 / Male Aura</option>
+          <option value="F AURA">여 아우라 / Female Aura</option>
+        </select>
+      </li><!--
+   --><li>
+        <div class="title">
+          생일 <i>Birthday</i>
+        </div>
+        <input type="date" name="birth" id="bday"
+               placeholder="YYYY/MM/DD" />
+      </li><!--
+   --><li>
+        <div class="title">
+          발급일자 <i>Date of Issue</i>
+        </div>
+        <input type="date" name="issuedate" id="idate"
+               placeholder="기본값: 오늘" />
+      </li><!--
+   --><li>
+        <div class="title">
+          유효일자 <i>Date of Expiry</i>
+        </div>
+        <input type="date" name="expdate" id="edate"
+               placeholder="YYYY/MM/DD" />
+      </li><!--
+   --><li>
+        <div class="title">
+          개인번호 <i>Personal No.</i>
+        </div>
+        <input type="number" name="pno" id="pno" maxlength="10"
+               placeholder="Max: 10 digits">
+      </li><!--
+   --><li>
+        <div class="title">
+          발급기관/총사령부 <i>Authority</i>
+        </div>
+        <select name="author" id="author">
+          <option value="" selected>-- 선택 / Select --</option>
+          <option value="MAELSTROM">흑와단 / Maelstrom</option>
+          <option value="TWIN ADDER">쌍사당 / Twin Adder</option>
+          <option value="IMMORTAL FLAME">불멸대 / Immortal Flame</option>
+        </select>
+      </li><!--
+   --><li>
+        <div class="title">
+          인-게임 닉네임 <i>In-Game Name</i>
+        </div>
+        <input type="text" name="lname" id="lname">
+      </li>
+    </ul>
+
+    <ul class="buttons">
+      <!--li id="reset">
+        다시 작성하기
+      </li>
+   --><li id="download">
+        저장
+      </li>
+    </ul>
+
+    <p class="muted">
+      iOS Safari의 경우, 새로 뜨는 창에서 이미지를 길게 눌러 저장해주세요.
+    </p>
+
     <canvas id="passcanvas" width="1476" height="1039" style="position: relative;">
-    </canvas><br>
-    기재되어있는 회사 명 · 제품명 · 시스템 이름은 해당 소유자의 상표 또는 등록 상표입니다.<br>
-    ⓒ 2010 - 2016 SQUARE ENIX CO., LTD All Rights Reserved. Korea Published by EYEDENTITY MOBILE.<br>
-    <br>
-    <br>
-    여권 배경 이미지는 <a href="http://lim2.xyz">본인</a>에게 저작권이 있으며, 생성기 이외의 용도로 사용을 금지합니다.<br>
-    ⓒ 2016 Dongju Lee.<br>
-    <br>
-</body>
+    </canvas>
+
+    <p class="muted">
+      기재되어있는 회사 명 · 제품명 · 시스템 이름은 해당 소유자의 상표 또는 등록
+      상표입니다.<br>
+      ⓒ 2010 - 2016 SQUARE ENIX CO., LTD All Rights Reserved. Korea Published
+      by EYEDENTITY MOBILE.
+    </p>
+    <p class="muted">
+      여권 배경 이미지는 <a href="http://lim2.xyz">본인</a>에게 저작권이 있으며,
+      생성기 이외의 용도로 사용을 금지합니다.<br>
+      ⓒ 2016 Dongju Lee.<br>
+    </p>
+  </body>
 </html>
