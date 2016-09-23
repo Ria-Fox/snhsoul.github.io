@@ -11,7 +11,7 @@
     <img src="./image/ife.png" id="ife" width="1px"/>
     <img src="./image/twa.png" id="twa" width="1px"/>
 </head>
-<body onload = "bgdraw();">
+<body>
     <br>
     <header>
         <div id="_menu">
@@ -169,7 +169,7 @@
         </select><br>
     </div>
     
-    ④ <button onclick="bgdraw();">배경 불러오기/이미지 초기화(Import Background/Clear Image)</button>  ②⑤ <button onclick="draw();">이미지로 변환(Convert to Image)</button>  ⑥ <a id="download"><button type="button">PNG 이미지 파일로 저장(Save to PNG Image file)</button></a><br><br>
+    ④ <button id="bgdraw">배경 불러오기/이미지 초기화(Import Background/Clear Image)</button>  ②⑤ <button id="draw">이미지로 변환(Convert to Image)</button>  ⑥ <a id="download"><button type="button">PNG 이미지 파일로 저장(Save to PNG Image file)</button></a><br><br>
         <p id="_tip">PNG 이미지로 저장 버튼이 작동하지 않을 경우, 오른쪽 클릭 - 이미지 저장으로 사용하세요.</p>
         <p id="_tip">애플 iOS Safari의 경우, 새 창에서 길게 터치 - 이미지 저장을 하시기 바랍니다.</p>
         <br>
