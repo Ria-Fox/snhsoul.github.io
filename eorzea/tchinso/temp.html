@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -9,10 +9,97 @@
         body {
             font-family: 'Noto Sans KR', sans-serif;
             font-weight: 350;
+            margin: 0px;
+            background: #222;
         }
         h1 {
             font-family: 'Noto Sans KR', sans-serif;
             font-weight: 700;
+        }
+        section {
+            padding: 0px 15%;
+            background: #222;
+            color: #eee;
+        }
+        header {
+            background: #7d7d7d;
+            display: block;
+        }
+        footer {
+            padding: 0px 15%;
+            background: #222;
+            color: #aaa;
+            font-size: small;
+        }
+        #_home_title {
+            color: #33abff;
+        }
+        div#_menu {
+            position: fixed;
+            width: 70%;
+            margin: 0px;
+            top:0px;
+            padding: 0px 15%;
+        }
+        div#_menu > ul {
+            list-style-type: none;
+            background: #7d7d7d;
+            color: white;
+            height:44px;
+            margin: 0px;
+            padding: 0px;
+        }
+        div#_menu > ul > li {
+            float: left;
+            position: relative;
+        }
+        div#_menu > ul > li > a {
+            text-decoration: none;
+            display: block;
+            padding: 10px 20px;
+            color : white;
+        }
+        div#_menu > ul > li > a#_home {
+            text-decoration: none;
+            display: block;
+            padding: 10px 20px;
+            color : white;
+            background: #33baff;
+        }
+        div#_menu > ul > li > a:hover {
+            background: white;
+            color: #7d7d7d;
+            display: block;
+        }
+        div#_menu > ul > li > a#_home:hover {
+            background: white;
+            color: #33baff;
+        }
+        a {
+            text-decoration: none;
+            color:#33baff;
+            transition-property: all;
+            transition-duration: 0.5s;
+            transition-timing-function: ease-out;
+        }
+        a:hover {
+            background: #33baff;
+            color:white;
+        }
+        input {
+            background: #333;
+            border: 0px;
+            border-bottom: #33baff 2px solid;
+            color: #7d7d7d;
+        }
+        #_sesbox {
+            background: #333;
+            padding: 20px 20px;
+            margin: 20px 0px;
+        }
+        p#_tip {
+            color: #aaa;
+            font-size: 0.9em;
         }
     </style>
     <img src="./image/tchinsobg.png" id="background" width="1px"/>
@@ -49,26 +136,21 @@
                 var style6 = document.getElementById('style6').value;
                 var style7 = document.getElementById('style7').value;
                 var style8 = document.getElementById('style8').value;
-
                 var job01 = document.getElementById('job01').value;
                 var job02 = document.getElementById('job02').value;
                 var job03 = document.getElementById('job03').value;
                 var job04 = document.getElementById('job04').value;
                 var job05 = document.getElementById('job05').value;
                 var job06 = document.getElementById('job06').value;
-
                 var job11 = document.getElementById('job11').value;
                 var job12 = document.getElementById('job12').value;
                 var job13 = document.getElementById('job13').value;
-
                 var job21 = document.getElementById('job21').value;
                 var job22 = document.getElementById('job22').value;
                 var job23 = document.getElementById('job23').value;
-
                 var job31 = document.getElementById('job31').value;
                 var job32 = document.getElementById('job32').value;
                 var job33 = document.getElementById('job33').value;
-
                 var job41 = document.getElementById('job41').value;
                 var job42 = document.getElementById('job42').value;
                 var job43 = document.getElementById('job43').value;
@@ -77,16 +159,13 @@
                 var job46 = document.getElementById('job46').value;
                 var job47 = document.getElementById('job47').value;
                 var job48 = document.getElementById('job48').value;
-
                 var favjob1 = document.getElementById('favjob1').value;
                 var favjob2 = document.getElementById('favjob2').value;
                 var favjob3 = document.getElementById('favjob3').value;
                 var favjob4 = document.getElementById('favjob4').value;
                 var favjob5 = document.getElementById('favjob5').value;
-
                 // var time = document.getElementById('time').value;
                 // var time_m = document.getElementById('time_m').value;
-
                 var canvas = document.getElementById("passcanvas");
                 if (canvas.getContext) {
                     var ctx = canvas.getContext("2d");
@@ -94,23 +173,17 @@
                     file.addEventListener('click', function() {
                         file.value = ''
                     });
-
                     file.addEventListener('change', function(event) {
                         if(event && event.target.files) {
                             var reader = new FileReader();
-
                             reader.onload = function(event){
                                 image = new Image();
-
                                 image.src = event.target.result;
-
                                 lastImage = image;
                                 image.crossOrigin = "Anonymous";
                                 draw()
                             };
-
                             reader.readAsDataURL(event.target.files[0])
-
                         }
                     });
                     ctx.drawImage(image, 20, 132, 363, 466);
@@ -153,7 +226,6 @@
                     ctx.fillText(now, 928, 756, 586);
                     ctx.fillText(want, 928, 820, 586);
                     // ctx.fillText(time_m, 20, 150);
-
                     ctx.textAlign = "center";
                     ctx.fillText(style1, 124, 682);
                     ctx.fillText(style2, 314, 682);
@@ -163,7 +235,6 @@
                     ctx.fillText(style6, 314, 776);
                     ctx.fillText(style7, 124, 823);
                     ctx.fillText(style8, 314, 823);
-
                     ctx.fillText(job01, 874, 240);
                     ctx.fillText(job02, 951, 240);
                     ctx.fillText(job03, 1028, 240);
@@ -173,14 +244,12 @@
                     ctx.fillText(job11, 1336, 240);
                     ctx.fillText(job12, 1413, 240);
                     ctx.fillText(job13, 1490, 240);
-
                     ctx.fillText(job21, 874, 360);
                     ctx.fillText(job22, 951, 360);
                     ctx.fillText(job23, 1028, 360);
                     ctx.fillText(job31, 1260, 360);
                     ctx.fillText(job32, 1336, 360);
                     ctx.fillText(job33, 1413, 360);
-
                     ctx.fillText(job41, 874, 480);
                     ctx.fillText(job42, 951, 480);
                     ctx.fillText(job43, 1028, 480);
@@ -189,10 +258,8 @@
                     ctx.fillText(job46, 1260, 480);
                     ctx.fillText(job47, 1336, 480);
                     ctx.fillText(job48, 1413, 480);
-
                     ctx.font = '500 17px "Noto Sans KR"';
                     ctx.shadowOffsetY = 2;
-
                     switch(favjob1) {
                         case "01":
                             ctx.fillText('주직업', 874, 270);
@@ -272,13 +339,10 @@
                             ctx.fillText('주직업', 1413, 510);
                             break;
                     }
-
-
                     ctx.font = '500 16px "Noto Sans KR"';
                     ctx.textAlign = "start";
                     ctx.fillText(dungeon1, 928, 680, 586);
                     ctx.fillText(dungeon2, 928, 700, 586);
-
                     /*
                     switch(time) {
                         case "1":
@@ -294,7 +358,6 @@
                     */
                 }
             };
-
             bgdraw = function bgdraw() {
                 var canvas = document.getElementById("passcanvas");
                 if (canvas.getContext) {
@@ -306,7 +369,6 @@
                 link.href = document.getElementById(canvasId).toDataURL();
                 link.download = filename;
             }
-
             document.getElementById('download').addEventListener('click', function() {
                 downloadCanvas(this, 'passcanvas', 'ff14_tchinso.png');
             }, false);
@@ -315,155 +377,176 @@
 </head>
 <body onload = "bgdraw();">
     <br>
-    <a href="http://lim2.xyz/eorzea">< Back to Menu</a> | <a href="http://lim2.xyz/eorzea/passport">에오르제아 여권 생성기</a> | <a href="http://lim2.xyz/eorzea/visastamp">출입국 스탬프 생성기</a> | <a href="http://lim2.xyz">lim2.xyz</a><br>
-    <h1>파이널판타지14 트친소 시트 생성기</h1><br>
+    <header>
+        <div id="_menu">
+            <ul>
+                <li><a href="#_home_title" id="_home">FF14 트친소 시트 생성기</a></li>
+                <li><a href="http://lim2.xyz/eorzea"><< Back to Menu</a></li>
+                <li><a href="http://lim2.xyz/eorzea/passport">에오르제아 여권 생성기</a></li>
+                <li><a href="http://lim2.xyz/eorzea/visastamp">출입국 스탬프 생성기</a></li>
+                <li><a href="http://lim2.xyz">lim2.xyz</a></li>
+            </ul>
+        </div>
+    </header>
+    <section>
+    <br>
+    <h1 id="_home_title">파이널판타지14 트친소 시트 생성기</h1><br>
     파이널판타지14 트친소시트 생성기입니다. 문의사항은 <a href="http://twitter.com/soul_firefox">트위터 @soul_firefox</a> 또는 메일로 연락해주세요.<br>
-    Special Thanks to <a href="http://hibiya.moe">@hibiyasleep</a>, <a href="http://twitter.com/kbuild_">@kbuild_</a><br>
+        <p id="_tip">Special Thanks to <a href="http://hibiya.moe">@hibiyasleep</a>, <a href="http://twitter.com/Ria_fox">@Ria_fox</a></p>
     구현상의 문제로 앞에 달린 번호대로 실행하세요. 조만간 수정하겠습니다. 불편을 드려 죄송합니다.<br><br>
-    <b>Internet Explorer, Microsoft Edge, 삼성 브라우저(삼성 갤럭시 기본탑재 인터넷 App.)는 지원하지 않습니다. 가급적 크롬, 파이어폭스 등의 다른 브라우저를 이용하시기 바랍니다.</b><br><br>
+        <p id="_tip"><b>Internet Explorer, Microsoft Edge, 삼성 브라우저(삼성 갤럭시 기본탑재 인터넷 App.)는 지원하지 않습니다. 가급적 크롬, 파이어폭스 등의 다른 브라우저를 이용하시기 바랍니다.</b></p><br><br>
     <img src = "./image/tchinsobg.png" alt="" width="520px">
     <br>
     <h2>① 정보 입력<br></h2>
-    ③ 프로필이미지(Profile Image): <input type="file" id="file"><br>
-    ※ 363x466 혹은 여권 사진 비율의 이미지를 추천합니다.<br>
-    이름: <input type="text" name="cname" id="cname" maxlength="9"> <input type="checkbox" name="cname_green" value="1">새싹이에요!<br>
-    서버: <select name='svrname' id="svrname">
+    <div id="_sesbox">
+        ③ 프로필이미지(Profile Image): <input type="file" id="file"><br>
+        ※ 363x466 혹은 여권 사진 비율의 이미지를 추천합니다.<br>
+        이름: <input type="text" name="cname" id="cname" maxlength="9"> <input type="checkbox" name="cname_green" value="1">새싹이에요!<br>
+        서버: <select name='svrname' id="svrname">
+            <option value='' selected>-- 선택(Select) --</option>
+            <option value='사보텐더'>사보텐더</option>
+            <option value='오딘'>오딘</option>
+            <option value='시바'>시바</option>
+            <option value='알테마'>알테마</option>
+            <option value='리바이어선'>리바이어선</option>
+            <option value='베히모스'>베히모스</option>
+        </select><br>
+        종족: <select name='gender' id="gender">
         <option value='' selected>-- 선택(Select) --</option>
-        <option value='사보텐더'>사보텐더</option>
-        <option value='오딘'>오딘</option>
-        <option value='시바'>시바</option>
-        <option value='알테마'>알테마</option>
-        <option value='리바이어선'>리바이어선</option>
-        <option value='베히모스'>베히모스</option>
-    </select><br>
-    종족: <select name='gender' id="gender">
-    <option value='' selected>-- 선택(Select) --</option>
-        <option value='휴런 남'>남 휴런</option>
-        <option value='휴런 여'>여 휴런</option>
-        <option value='미코테 남'>남 미코테</option>
-        <option value='미코테 여'>여 미코테</option>
-        <option value='라라펠 남'>남 라라펠</option>
-        <option value='라라펠 여'>여 라라펠</option>
-        <option value='엘레젠 남'>남 엘레젠</option>
-        <option value='엘레젠 여'>여 엘레젠</option>
-        <option value='루가딘 남'>남 루가딘</option>
-        <option value='루가딘 여'>여 루가딘</option>
-        <option value='아우라 남'>남 아우라</option>
-        <option value='아우라 여'>여 아우라</option>
-    </select><br>
-    자유부대: <input type="text" name="comp" value="부대명《약칭》" id="comp"><br>
-    총사령부: <select name='gcomp' id="gcomp">
-        <option value='' selected>-- 선택(Select) --</option>
-        <option value='0'>없음</option>
-        <option value='1'>흑와단</option>
-        <option value='2'>쌍사당</option>
-        <option value='3'>불멸대</option>
-    </select>
-    계급: <input type="text" name="gcomp2" id="gcomp2" maxlength="2"><br>
-    언약자: <input type="text" name="iwith" id="iwith" maxlength="9"><br>
-    취향: <input type="text" name="like" id="like"><br>
-    지뢰: <input type="text" name="dislike" id="dislike"><br>
-    던전: <input type="text" name="dungeon1" id="dungeon1" value="좋아해요! (던전이름)"><br>
-    <input type="text" name="dungeon2" id="dungeon2" value="싫어해요! (던전이름)"><br>
-    요즘 하고있는 것: <input type="text" name="now" id="now"><br>
-    하고싶은 말: <input type="text" name="want" id="want"><br>
-    <br>
-    <b>플레이스타일</b><br>
-    전투: <input type="text" name="style1" id="style1" maxlength="3">%  파밍: <input type="text" name="style2" id="style2" maxlength="3">%<br>
-    제작: <input type="text" name="style3" id="style3" maxlength="3">%  채집: <input type="text" name="style4" id="style4" maxlength="3">%<br>
-    스토리: <input type="text" name="style5" id="style5" maxlength="3">%  친목: <input type="text" name="style6" id="style6" maxlength="3">%<br>
-    룩덕: <input type="text" name="style7" id="style7" maxlength="3">%  자덕: <input type="text" name="style8" id="style8" maxlength="3">%<br>
-    <br>
-    <b>주로 플레이하는 시간</b> <input type="checkbox" name="time" id="time" value="1">불규칙해요!<br>
-    새벽: <input type="checkbox" name="time_m" value="1">일요일 <input type="checkbox" name="time_m" value="2">월요일 <input type="checkbox" name="time_m" value="3">화요일 <input type="checkbox" name="time_m" value="4">수요일 <input type="checkbox" name="time_m" value="5">목요일 <input type="checkbox" name="time_m" value="6">금요일 <input type="checkbox" name="time_m" value="7">토요일<br>
-    오전: <input type="checkbox" name="time_a" value="1">일요일 <input type="checkbox" name="time_a" value="2">월요일 <input type="checkbox" name="time_a" value="3">화요일 <input type="checkbox" name="time_a" value="4">수요일 <input type="checkbox" name="time_a" value="5">목요일 <input type="checkbox" name="time_a" value="6">금요일 <input type="checkbox" name="time_a" value="7">토요일<br>
-    오후: <input type="checkbox" name="time_p" value="1">일요일 <input type="checkbox" name="time_p" value="2">월요일 <input type="checkbox" name="time_p" value="3">화요일 <input type="checkbox" name="time_p" value="4">수요일 <input type="checkbox" name="time_p" value="5">목요일 <input type="checkbox" name="time_p" value="6">금요일 <input type="checkbox" name="time_p" value="7">토요일<br>
-    저녁: <input type="checkbox" name="time_n" value="1">일요일 <input type="checkbox" name="time_n" value="2">월요일 <input type="checkbox" name="time_n" value="3">화요일 <input type="checkbox" name="time_n" value="4">수요일 <input type="checkbox" name="time_n" value="5">목요일 <input type="checkbox" name="time_n" value="6">금요일 <input type="checkbox" name="time_n" value="7">토요일<br>
-    심야: <input type="checkbox" name="time_q" value="1">일요일 <input type="checkbox" name="time_q" value="2">월요일 <input type="checkbox" name="time_q" value="3">화요일 <input type="checkbox" name="time_q" value="4">수요일 <input type="checkbox" name="time_q" value="5">목요일 <input type="checkbox" name="time_q" value="6">금요일 <input type="checkbox" name="time_q" value="7">토요일<br>
-    <h3>직업별 레벨</h3><br>
-    <b>투사</b><br>
-    검술사: <input type="number" name="job01" id="job01" maxlength="2"><br>
-    도끼술사: <input type="number" name="job02" id="job02" maxlength="2"><br>
-    격투사: <input type="number" name="job03" id="job03" maxlength="2"><br>
-    창술사: <input type="number" name="job04" id="job04" maxlength="2"><br>
-    쌍검사: <input type="number" name="job05" id="job05" maxlength="2"><br>
-    궁술사: <input type="number" name="job06" id="job06" maxlength="2"><br>
-    <br>
-    <b>마법사</b><br>
-    주술사: <input type="number" name="job11" id="job11" maxlength="2"><br>
-    비술사: <input type="number" name="job12" id="job12" maxlength="2"><br>
-    환술사: <input type="number" name="job13" id="job13" maxlength="2"><br>
-    <br>
-    <b>추가 직업</b><br>
-    암흑기사: <input type="number" name="job21" id="job21" maxlength="2"><br>
-    기공사: <input type="number" name="job22" id="job22" maxlength="2"><br>
-    점성술사: <input type="number" name="job23" id="job23" maxlength="2"><br>
-    <br>
-    <b>채집</b><br>
-    광부: <input type="number" name="job31" id="job31" maxlength="2"><br>
-    원예가: <input type="number" name="job32" id="job32" maxlength="2"><br>
-    어부: <input type="number" name="job33" id="job33" maxlength="2"><br>
-    <br>
-    <b>제작</b><br>
-    목수: <input type="number" name="job41" id="job41" maxlength="2"><br>
-    대장장이: <input type="number" name="job42" id="job42" maxlength="2"><br>
-    갑주제작사: <input type="number" name="job43" id="job43" maxlength="2"><br>
-    보석공예가: <input type="number" name="job44" id="job44" maxlength="2"><br>
-    가죽공예가: <input type="number" name="job45" id="job45" maxlength="2"><br>
-    재봉가: <input type="number" name="job46" id="job46" maxlength="2"><br>
-    연금술사: <input type="number" name="job47" id="job47" maxlength="2"><br>
-    요리사: <input type="number" name="job48" id="job48" maxlength="2"><br>
-    <br>
-    <b>주 직업</b><br>
-    방어 역할: <select name='favjob1' id="favjob1">
-        <option value='' selected>-- 선택(Select) --</option>
-        <option value='01'>검술사</option>
-        <option value='02'>도끼술사</option>
-        <option value='21'>암흑기사</option>
-    </select><br>
-    회복 역할: <select name='favjob2' id="favjob2">
-        <option value='' selected>-- 선택(Select) --</option>
-        <option value='13'>환술사</option>
-        <option value='23'>점성술사</option>
-    </select><br>
-    공격 역할: <select name='favjob3' id="favjob3">
-        <option value='' selected>-- 선택(Select) --</option>
-        <option value='03'>격투사</option>
-        <option value='04'>창술사</option>
-        <option value='05'>쌍검사</option>
-        <option value='06'>궁술사</option>
-        <option value='11'>주술사</option>
-        <option value='12'>비술사</option>
-        <option value='22'>기공사</option>
-    </select><br>
-    채집: <select name='favjob4' id="favjob4">
-        <option value='' selected>-- 선택(Select) --</option>
-        <option value='31'>광부</option>
-        <option value='32'>원예가</option>
-        <option value='33'>어부</option>
-    </select><br>
-    제작: <select name='favjob5' id="favjob5">
-        <option value='' selected>-- 선택(Select) --</option>
-        <option value='41'>목수</option>
-        <option value='42'>대장장이</option>
-        <option value='43'>갑주제작사</option>
-        <option value='44'>보석공예가</option>
-        <option value='45'>가죽공예가</option>
-        <option value='46'>재봉사</option>
-        <option value='47'>연금술사</option>
-        <option value='48'>요리사</option>
-    </select><br>
-    <br>
+            <option value='휴런 남'>남 휴런</option>
+            <option value='휴런 여'>여 휴런</option>
+            <option value='미코테 남'>남 미코테</option>
+            <option value='미코테 여'>여 미코테</option>
+            <option value='라라펠 남'>남 라라펠</option>
+            <option value='라라펠 여'>여 라라펠</option>
+            <option value='엘레젠 남'>남 엘레젠</option>
+            <option value='엘레젠 여'>여 엘레젠</option>
+            <option value='루가딘 남'>남 루가딘</option>
+            <option value='루가딘 여'>여 루가딘</option>
+            <option value='아우라 남'>남 아우라</option>
+            <option value='아우라 여'>여 아우라</option>
+        </select><br>
+        자유부대: <input type="text" name="comp" value="부대명《약칭》" id="comp"><br>
+        총사령부: <select name='gcomp' id="gcomp">
+            <option value='' selected>-- 선택(Select) --</option>
+            <option value='0'>없음</option>
+            <option value='1'>흑와단</option>
+            <option value='2'>쌍사당</option>
+            <option value='3'>불멸대</option>
+        </select>
+        계급: <input type="text" name="gcomp2" id="gcomp2" maxlength="2"><br>
+        언약자: <input type="text" name="iwith" id="iwith" maxlength="9"><br>
+        취향: <input type="text" name="like" id="like"><br>
+        지뢰: <input type="text" name="dislike" id="dislike"><br>
+        던전: <input type="text" name="dungeon1" id="dungeon1" value="좋아해요! (던전이름)"><br>
+        <input type="text" name="dungeon2" id="dungeon2" value="싫어해요! (던전이름)"><br>
+        요즘 하고있는 것: <input type="text" name="now" id="now"><br>
+        하고싶은 말: <input type="text" name="want" id="want"><br>
+    </div>
+    <div id="_sesbox">
+        <b>플레이스타일</b><br>
+        전투: <input type="text" name="style1" id="style1" maxlength="3">%  파밍: <input type="text" name="style2" id="style2" maxlength="3">%<br>
+        제작: <input type="text" name="style3" id="style3" maxlength="3">%  채집: <input type="text" name="style4" id="style4" maxlength="3">%<br>
+        스토리: <input type="text" name="style5" id="style5" maxlength="3">%  친목: <input type="text" name="style6" id="style6" maxlength="3">%<br>
+        룩덕: <input type="text" name="style7" id="style7" maxlength="3">%  자덕: <input type="text" name="style8" id="style8" maxlength="3">%<br>
+        <br>
+        <b>주로 플레이하는 시간</b> <input type="checkbox" name="time" id="time" value="1">불규칙해요!<br>
+        새벽: <input type="checkbox" name="time_m" value="1">일요일 <input type="checkbox" name="time_m" value="2">월요일 <input type="checkbox" name="time_m" value="3">화요일 <input type="checkbox" name="time_m" value="4">수요일 <input type="checkbox" name="time_m" value="5">목요일 <input type="checkbox" name="time_m" value="6">금요일 <input type="checkbox" name="time_m" value="7">토요일<br>
+        오전: <input type="checkbox" name="time_a" value="1">일요일 <input type="checkbox" name="time_a" value="2">월요일 <input type="checkbox" name="time_a" value="3">화요일 <input type="checkbox" name="time_a" value="4">수요일 <input type="checkbox" name="time_a" value="5">목요일 <input type="checkbox" name="time_a" value="6">금요일 <input type="checkbox" name="time_a" value="7">토요일<br>
+        오후: <input type="checkbox" name="time_p" value="1">일요일 <input type="checkbox" name="time_p" value="2">월요일 <input type="checkbox" name="time_p" value="3">화요일 <input type="checkbox" name="time_p" value="4">수요일 <input type="checkbox" name="time_p" value="5">목요일 <input type="checkbox" name="time_p" value="6">금요일 <input type="checkbox" name="time_p" value="7">토요일<br>
+        저녁: <input type="checkbox" name="time_n" value="1">일요일 <input type="checkbox" name="time_n" value="2">월요일 <input type="checkbox" name="time_n" value="3">화요일 <input type="checkbox" name="time_n" value="4">수요일 <input type="checkbox" name="time_n" value="5">목요일 <input type="checkbox" name="time_n" value="6">금요일 <input type="checkbox" name="time_n" value="7">토요일<br>
+        심야: <input type="checkbox" name="time_q" value="1">일요일 <input type="checkbox" name="time_q" value="2">월요일 <input type="checkbox" name="time_q" value="3">화요일 <input type="checkbox" name="time_q" value="4">수요일 <input type="checkbox" name="time_q" value="5">목요일 <input type="checkbox" name="time_q" value="6">금요일 <input type="checkbox" name="time_q" value="7">토요일
+    </div>
+    <div id="_sesbox">
+        <h3>직업별 레벨</h3><br>
+        <b>투사</b><br>
+        검술사: <input type="number" name="job01" id="job01" maxlength="2"><br>
+        도끼술사: <input type="number" name="job02" id="job02" maxlength="2"><br>
+        격투사: <input type="number" name="job03" id="job03" maxlength="2"><br>
+        창술사: <input type="number" name="job04" id="job04" maxlength="2"><br>
+        쌍검사: <input type="number" name="job05" id="job05" maxlength="2"><br>
+        궁술사: <input type="number" name="job06" id="job06" maxlength="2"><br>
+        <br>
+        <b>마법사</b><br>
+        주술사: <input type="number" name="job11" id="job11" maxlength="2"><br>
+        비술사: <input type="number" name="job12" id="job12" maxlength="2"><br>
+        환술사: <input type="number" name="job13" id="job13" maxlength="2"><br>
+        <br>
+        <b>추가 직업</b><br>
+        암흑기사: <input type="number" name="job21" id="job21" maxlength="2"><br>
+        기공사: <input type="number" name="job22" id="job22" maxlength="2"><br>
+        점성술사: <input type="number" name="job23" id="job23" maxlength="2"><br>
+        <br>
+        <b>채집</b><br>
+        광부: <input type="number" name="job31" id="job31" maxlength="2"><br>
+        원예가: <input type="number" name="job32" id="job32" maxlength="2"><br>
+        어부: <input type="number" name="job33" id="job33" maxlength="2"><br>
+        <br>
+        <b>제작</b><br>
+        목수: <input type="number" name="job41" id="job41" maxlength="2"><br>
+        대장장이: <input type="number" name="job42" id="job42" maxlength="2"><br>
+        갑주제작사: <input type="number" name="job43" id="job43" maxlength="2"><br>
+        보석공예가: <input type="number" name="job44" id="job44" maxlength="2"><br>
+        가죽공예가: <input type="number" name="job45" id="job45" maxlength="2"><br>
+        재봉가: <input type="number" name="job46" id="job46" maxlength="2"><br>
+        연금술사: <input type="number" name="job47" id="job47" maxlength="2"><br>
+        요리사: <input type="number" name="job48" id="job48" maxlength="2"><br>
+        <br>
+        <b>주 직업</b><br>
+        방어 역할: <select name='favjob1' id="favjob1">
+            <option value='' selected>-- 선택(Select) --</option>
+            <option value='01'>검술사</option>
+            <option value='02'>도끼술사</option>
+            <option value='21'>암흑기사</option>
+        </select><br>
+        회복 역할: <select name='favjob2' id="favjob2">
+            <option value='' selected>-- 선택(Select) --</option>
+            <option value='13'>환술사</option>
+            <option value='23'>점성술사</option>
+        </select><br>
+        공격 역할: <select name='favjob3' id="favjob3">
+            <option value='' selected>-- 선택(Select) --</option>
+            <option value='03'>격투사</option>
+            <option value='04'>창술사</option>
+            <option value='05'>쌍검사</option>
+            <option value='06'>궁술사</option>
+            <option value='11'>주술사</option>
+            <option value='12'>비술사</option>
+            <option value='22'>기공사</option>
+        </select><br>
+        채집: <select name='favjob4' id="favjob4">
+            <option value='' selected>-- 선택(Select) --</option>
+            <option value='31'>광부</option>
+            <option value='32'>원예가</option>
+            <option value='33'>어부</option>
+        </select><br>
+        제작: <select name='favjob5' id="favjob5">
+            <option value='' selected>-- 선택(Select) --</option>
+            <option value='41'>목수</option>
+            <option value='42'>대장장이</option>
+            <option value='43'>갑주제작사</option>
+            <option value='44'>보석공예가</option>
+            <option value='45'>가죽공예가</option>
+            <option value='46'>재봉사</option>
+            <option value='47'>연금술사</option>
+            <option value='48'>요리사</option>
+        </select><br>
+    </div>
+    
     ④ <button onclick="bgdraw();">배경 불러오기/이미지 초기화(Import Background/Clear Image)</button>  ②⑤ <button onclick="draw();">이미지로 변환(Convert to Image)</button>  ⑥ <a id="download"><button type="button">PNG 이미지 파일로 저장(Save to PNG Image file)</button></a><br><br>
-    PNG 이미지로 저장 버튼이 작동하지 않을 경우, 오른쪽 클릭 - 이미지 저장으로 사용하세요.<br>
-    애플 iOS Safari의 경우, 새 창에서 길게 터치 - 이미지 저장을 하시기 바랍니다.<br><br>
+        <p id="_tip">PNG 이미지로 저장 버튼이 작동하지 않을 경우, 오른쪽 클릭 - 이미지 저장으로 사용하세요.</p>
+        <p id="_tip">애플 iOS Safari의 경우, 새 창에서 길게 터치 - 이미지 저장을 하시기 바랍니다.</p>
+        <br>
     <canvas id="passcanvas" width="1544" height="887" style="position: relative;">
     </canvas><br>
+    </section>
+    <footer>
     기재되어있는 회사 명 · 제품명 · 시스템 이름은 해당 소유자의 상표 또는 등록 상표입니다.<br>
     ⓒ 2010 - 2016 SQUARE ENIX CO., LTD All Rights Reserved. Korea Published by EYEDENTITY MOBILE.<br>
     <br>
     트친소시트 배경 이미지는 <a href="http://lim2.xyz">본인</a>에게 저작권이 있으며, 배경 이미지를 생성기 이외의 용도로 사용하는 것을 금지합니다.<br>
     ⓒ 2016 Dongju Lee.<br>
     <br>
+    </footer>
 </body>
 </html>
