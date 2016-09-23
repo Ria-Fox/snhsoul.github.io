@@ -10,16 +10,17 @@ h1 {
     font-weight: 700;
 }
 section {
-    padding: 0px 15%;
+    width: 840px;
     background: #222;
     color: #eee;
+    padding: 10px;
 }
 header {
     background: #7d7d7d;
     display: block;
 }
 footer {
-    padding: 0px 15%;
+    /*padding: 0px 15%;*/
     background: #222;
     color: #aaa;
     font-size: small;
@@ -29,10 +30,8 @@ footer {
 }
 div#_menu {
     position: fixed;
-    width: 70%;
     margin: 0px;
     top:0px;
-    padding: 0px 15%;
 }
 div#_menu > ul {
     list-style-type: none;
@@ -55,7 +54,7 @@ div#_menu > ul > li > a {
 div#_menu > ul > li > a#_home {
     text-decoration: none;
     display: block;
-    padding: 10px 20px;
+    /*padding: 10px 20px;*/
     color : white;
     background: #33baff;
 }
@@ -93,4 +92,53 @@ input {
 p#_tip {
     color: #aaa;
     font-size: 0.9em;
+}
+@media screen and (max-width:860px) {
+    section {
+        width: 100%;
+        background: #222;
+        color: #eee;
+    }
+    div#_menu > ul {
+        list-style-type: none;
+        background: #7d7d7d;
+        color: white;
+        height:22px;
+        margin: 0px;
+        padding: 0px;
+    }
+    div#_menu > ul > li > a {
+        text-decoration: none;
+        display: block;
+        padding: 5px 10px;
+        color : white;
+        font-size: 0.6em;
+    }
+}
+@media screen and (max-width:430px) {
+    section {
+        width: 100%;
+        background: #222;
+        color: #eee;
+    }
+    div#_menu {
+        position: relative;
+        margin: 0px;
+        top:0px;
+    }
+    div#_menu > ul {
+        list-style-type: none;
+        background: #7d7d7d;
+        color: white;
+        height:22px;
+        margin: 0px;
+        padding: 0px;
+    }
+    div#_menu > ul > li > a {
+        text-decoration: none;
+        display: block;
+        padding: 5px 10px;
+        color : white;
+        font-size: 0.6em;
+    }
 }
