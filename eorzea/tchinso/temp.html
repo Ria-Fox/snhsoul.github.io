@@ -16,11 +16,17 @@
         }
     </style>
     <img src="./image/tchinsobg.png" id="background" width="1px"/>
+    <img src="./image/mst.png" id="mst" width="1px"/>
+    <img src="./image/ife.png" id="ife" width="1px"/>
+    <img src="./image/twa.png" id="twa" width="1px"/>
     <script type="application/x-javascript">
         // var image = "";
         lastimage = false;
         window.addEventListener('load', function() {
             var bg = document.getElementById('background');
+            var mst = document.getElementById('mst');
+            var ife = document.getElementById('ife');
+            var twa = document.getElementById('twa');
             draw = function draw() {
                 var cname = document.getElementById('cname').value;
                 var svrname = document.getElementById('svrname').value;
@@ -43,7 +49,6 @@
                 var style6 = document.getElementById('style6').value;
                 var style7 = document.getElementById('style7').value;
                 var style8 = document.getElementById('style8').value;
-                var time = document.getElementById('time').value;
 
                 var job01 = document.getElementById('job01').value;
                 var job02 = document.getElementById('job02').value;
@@ -79,7 +84,8 @@
                 var favjob4 = document.getElementById('favjob4').value;
                 var favjob5 = document.getElementById('favjob5').value;
 
-                var time_m = document.getElementsByName('time_m');
+                // var time = document.getElementById('time').value;
+                // var time_m = document.getElementById('time_m').value;
 
                 var canvas = document.getElementById("passcanvas");
                 if (canvas.getContext) {
@@ -107,7 +113,7 @@
 
                         }
                     });
-                    // ctx.drawImage(image, 20, 132, 363, 466);
+                    ctx.drawImage(image, 20, 132, 363, 466);
                     ctx.font = '500 30px "Noto Sans KR"';
                     ctx.fillStyle = "rgba(255,255,255,1)";
                     ctx.shadowColor = "rgba(0,0,0,1)";
@@ -117,8 +123,30 @@
                     ctx.fillText(svrname, 490, 233);
                     ctx.fillText(gender, 490, 299);
                     ctx.fillText(comp, 490, 365, 308);
-                    ctx.fillText('흑와단', 490, 433);
-                    ctx.fillText('소위', 582, 433);
+                    switch(gcomp) {
+                        case "0":
+                            ctx.fillText('없음', 874, 510);
+                            break;
+                        case "1":
+                            ctx.shadowOffsetY = 0;
+                            ctx.drawImage(mst, 660, 398, 141, 50);
+                            ctx.shadowOffsetY = 3;
+                            ctx.fillText('흑와단', 490, 433);
+                            break;
+                        case "2":
+                            ctx.shadowOffsetY = 0;
+                            ctx.drawImage(twa, 660, 398, 141, 50);
+                            ctx.shadowOffsetY = 3;
+                            ctx.fillText('쌍사당', 490, 433);
+                            break;
+                        case "3":
+                            ctx.shadowOffsetY = 0;
+                            ctx.drawImage(ife, 660, 398, 141, 50);
+                            ctx.shadowOffsetY = 3;
+                            ctx.fillText('불멸대', 490, 433);
+                            break;
+                    }
+                    ctx.fillText(gcomp2, 582, 433);
                     ctx.fillText(iwith, 490, 502);
                     ctx.fillText(like, 928, 566, 586);
                     ctx.fillText(dislike, 928, 630, 586);
@@ -251,8 +279,7 @@
                     ctx.fillText(dungeon1, 928, 680, 586);
                     ctx.fillText(dungeon2, 928, 700, 586);
 
-
-
+                    /*
                     switch(time) {
                         case "1":
                             ctx.font = '500 30px "Noto Sans KR"';
@@ -264,6 +291,7 @@
                             ctx.fillText('', 701, 560);
                             break;
                     }
+                    */
                 }
             };
 
