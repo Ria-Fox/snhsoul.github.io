@@ -1,0 +1,96 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 350;
+    margin: 0px;
+    background: #222;
+}
+h1 {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 700;
+}
+section {
+    padding: 0px 15%;
+    background: #222;
+    color: #eee;
+}
+header {
+    background: #7d7d7d;
+    display: block;
+}
+footer {
+    padding: 0px 15%;
+    background: #222;
+    color: #aaa;
+    font-size: small;
+}
+#_home_title {
+    color: #33abff;
+}
+div#_menu {
+    position: fixed;
+    width: 70%;
+    margin: 0px;
+    top:0px;
+    padding: 0px 15%;
+}
+div#_menu > ul {
+    list-style-type: none;
+    background: #7d7d7d;
+    color: white;
+    height:44px;
+    margin: 0px;
+    padding: 0px;
+}
+div#_menu > ul > li {
+    float: left;
+    position: relative;
+}
+div#_menu > ul > li > a {
+    text-decoration: none;
+    display: block;
+    padding: 10px 20px;
+    color : white;
+}
+div#_menu > ul > li > a#_home {
+    text-decoration: none;
+    display: block;
+    padding: 10px 20px;
+    color : white;
+    background: #33baff;
+}
+div#_menu > ul > li > a:hover {
+    background: white;
+    color: #7d7d7d;
+    display: block;
+}
+div#_menu > ul > li > a#_home:hover {
+    background: white;
+    color: #33baff;
+}
+a {
+    text-decoration: none;
+    color:#33baff;
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
+}
+a:hover {
+    background: #33baff;
+    color:white;
+}
+input {
+    background: #333;
+    border: 0px;
+    border-bottom: #33baff 2px solid;
+    color: #7d7d7d;
+}
+#_sesbox {
+    background: #333;
+    padding: 20px 20px;
+    margin: 20px 0px;
+}
+p#_tip {
+    color: #aaa;
+    font-size: 0.9em;
+}
