@@ -1,16 +1,17 @@
 var image = "";
 lastimage = false;
-window.addEventListener('load', function() {
+$('document').ready(function() {
     var bg = document.getElementById('background');
     var mst = document.getElementById('mst');
     var ife = document.getElementById('ife');
     var twa = document.getElementById('twa');
 
-    draw = function draw() {
+    function draw() {
         bgdraw();
+
         var cname = $('#cname').val();
         var svrname = $('#svrname').val();
-        var gender= $('#gender').val();
+        var gender = $('#gender').val();
         var comp = $('#comp').val();
         var gcomp = $('#gcomp').val();
         var gcomp2 = $('#gcomp2').val();
@@ -57,31 +58,14 @@ window.addEventListener('load', function() {
         var favjob3 = $('#favjob3').val();
         var favjob4 = $('#favjob4').val();
         var favjob5 = $('#favjob5').val();
-        // var time = document.getElementById('time').value;
+        var time = document.getElementById('time').value;
         // var time_m = document.getElementById('time_m').value;
         var canvas = document.getElementById("passcanvas");
 
         if (canvas.getContext) {
             var ctx = canvas.getContext("2d");
-            var file = document.getElementById('file');
             ctx.beginPath();
-            file.addEventListener('click', function() {
-                file.value = ''
-            });
 
-            file.addEventListener('change', function(event) {
-                if(event && event.target.files) {
-                    var reader = new FileReader();
-                    reader.onload = function(event){
-                        image = new Image();
-                        image.src = event.target.result;
-                        lastImage = image;
-                        image.crossOrigin = "Anonymous";
-                        draw()
-                    };
-                    reader.readAsDataURL(event.target.files[0])
-                }
-            });
             if (image != '') {
                 ctx.drawImage(image, 20, 132, 363, 466);
             }
@@ -237,37 +221,64 @@ window.addEventListener('load', function() {
                     ctx.fillText('주직업', 1413, 510);
                     break;
             }
+
             ctx.font = '500 16px "Noto Sans KR"';
             ctx.textAlign = "start";
             ctx.fillText(dungeon1, 928, 680, 586);
             ctx.fillText(dungeon2, 928, 700, 586);
-            /*
-            switch(time) {
-                case "1":
-                    ctx.font = '500 30px "Noto Sans KR"';
-                    ctx.fillStyle = "rgba(158,44,44,1)";
-                    ctx.shadowOffsetY = 0;
-                    ctx.fillText('∨', 701, 560);
-                    break;
-                default:
-                    ctx.fillText('', 701, 560);
-                    break;
+            
+            if (time == 1) {
+                ctx.font = '500 30px "Noto Sans KR"';
+                ctx.fillStyle = "rgba(158,44,44,1)";
+                ctx.shadowOffsetY = 0;
+                ctx.fillText('∨', 691, 563);
             }
-            */
         }
     };
-    bgdraw = function bgdraw() {
+
+    var file = $('#file');
+
+    $('#file').on('click', function(event) {
+        $('#file').val('');
+    });
+
+    $('#file').on('change', function(event) {
+        if(event && event.target.files) {
+            var reader = new FileReader();
+            reader.onload = function(event){
+                image = new Image();
+                image.src = event.target.result;
+                lastImage = image;
+                image.crossOrigin = "Anonymous";
+            };
+            reader.readAsDataURL(event.target.files[0])
+        }
+    });
+
+    function bgdraw() {
         var canvas = document.getElementById("passcanvas");
         if (canvas.getContext) {
             var ctx = canvas.getContext("2d");
-            ctx.drawImage(bg, 0, 0, 1544, 887);
+            ctx.drawImage($('#background')[0], 0, 0, 1544, 887);
         }
     };
-    downloadCanvas = function downloadCanvas(link, canvasId, filename) {
+
+    function downloadCanvas(link, canvasId, filename) {
         link.href = document.getElementById(canvasId).toDataURL();
         link.download = filename;
     }
+
     document.getElementById('download').addEventListener('click', function() {
         downloadCanvas(this, 'passcanvas', 'ff14_tchinso.png');
     }, false);
-})
+
+    bgdraw();
+
+    $('#bgdraw').click(function() {
+        bgdraw();
+    });
+
+    $('#draw').click(function() {
+        draw();
+    });
+});
